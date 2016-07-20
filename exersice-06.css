@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+body {
+	font-family: 'Arial, Helevetica', sans-serif;
+}
+
+.form-div {
+    border: 1px solid black;
+    width: 400px;
+    height: 250px;
+    margin-left: 25em;
+    margin-top: 10em;
+}
+h1 {
+	text-align: center;
+	
+}
+.label {
+	 margin-left: 10em;
+}
+form label  {
+	display: inline-block;
+	font-weight: bold;
+	text-align: center;
+}
+input {
+	width: 95%;
+	border-radius: 10px;
+    margin-left: 2%;
+
+	
+}
+
+button {
+	border-radius: 10px;
+	margin-left: 12em;
+    margin-top: 1em;
+}
+p {
+	color: red;
+	font-weight: bold;
+	text-align:center;
+}
+.select {
+	margin-left: 4em;
+}
