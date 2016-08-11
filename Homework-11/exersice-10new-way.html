@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Form validation new way</title>
+	<link rel="stylesheet"  type="text/css" href="exersice-10new-way.css"/>
+	<script type="text/javascript" src="exersice-10new-way.js"></script>
+	<script type="text/javascript">
+	function validateField(domEl, fnValidator, strMessage) {
+		debugger;
+		var errorContainer = domEl.nextElementSibling;
+		errorContainer.innerHTML = '';
+		domEl.className = domEl.className.replace('error', '');
+		if (!fnValidator(domEl.value)) {
+			errorContainer.innerHTML = strMessage;
+			domEl.className = domEl.className + ' error';
+			
+			return false;
+		}
+		
+		return true;
+	}
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		var select = document.querySelector('#select');
+		select.addEventListener("change",function (){
+			var select = document.querySelector('#select');
+			var dCountry = document.querySelector("#dcountry");
+			var dLabel = document.querySelector("#label-dcountry");
+			if(select.value == "Other"){
+				dLabel.removeAttribute("style");
+				dCountry.removeAttribute("style");
+			}else if(select.value != "Other"){
+				dCountry.style.display = "none";
+				dLabel.style.display = "none";
+			}
+		}, false);
+		var form = document.querySelector('form');
+		
+		form.addEventListener('submit', function (event) {
+			var name = document.querySelector('#name');
+			var dateOfBirth = document.querySelector('#date-of-birth');
+			var phone = document.querySelector('#phone');
+			var email = document.querySelector('#email');
+			var dcountry = document.querySelector("#dcountry");
+			
+			var r1 = validateField(name, validName, 'Enter et least 3 words');
+			var r2 = validateField(dateOfBirth, validDate, 'Enter valid date n format dd/mm/yyyy');
+			var r3 = validateField(phone, isValidPhone, 'Enter valid phone in format +3598xxxxxxxx');
+			var r4 = validateField(email, isValidEmail, 'Enter valid email');
+			var r5 = validateField(select, isValidSelect, 'Enter a country');
+			if(select.value == "Other"){
+				var r6 = validateField(dcountry, isValidCountry, 'Enter a other country');
+			}else {
+				var r6 = true;
+			}
+		
+			if (r1 && r2 && r3 && r4 && r5 && r6) {
+				return;
+			}
+			
+			event.preventDefault();
+		}, false);
+	}, false)
+	
+	</script>
+	</head>
+	<body>
+		<div>
+			<h2 class="text-center-mail-us">Form us</h2>
+		</div>
+		<form  action="" novalidate>
+			<div>
+				<label for="">Full Name</label>
+				<input type="text" placeholder="3 words" id="name"/>
+				<p class="error"></p>
+			</div>
+			<div>
+				<label for="">Date Of Birth</label>
+				<input type="text" placeholder="dd/mm/yyyy" id="date-of-birth"/>
+				<p class="error"></p>
+			</div>
+			
+			<div>
+				<label for="">Phone</label>
+				<input type="text" placeholder="+3598xxxxxxxx" id="phone"/>
+				<p class="error"></p>
+			</div>
+			
+			<div>
+				<label for="">Email</label>
+				<input type="email" id="email" placeholder="email"/>
+				<p class="error"></p>
+			</div>
+			<div>
+				<label id="label-select" for="country" class="label-2">Country:</label>
+					  <select id="select" name="country">
+					  	<option></option>
+					  	<option value="Other">Other</option>
+					  	<option value="България">България</option>
+					  	<option value="САЩ">САЩ</option>
+					  	<option value="Англия">Англия</option>
+					  </select>
+					  <p class="error"></p>
+			</div>
+			<div>
+				<label id="label-dcountry" for="Dcountry" style="display: none">Enter Country:</label>
+						<input id="dcountry" class="country" style="display: none" type="text" name="Dcountry" >
+						<p class="error"></p>
+			</div>
+			<div class="mfControls center767">
+				<button type="submit">Submit</button>
+			</div>
+		</form>
+	</body>
+</html>

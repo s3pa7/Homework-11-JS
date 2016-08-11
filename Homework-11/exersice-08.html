@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Add row</title>
+	<script type="text/javascript" src="exersice-08.js"></script>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', onDomLoaded, false);
+		
+
+		function onDomLoaded() {
+			var addBtn = document.getElementById('add-row-btn');
+			addBtn.addEventListener('click', addRow, false);
+			
+			document
+			.querySelector('table')
+			.addEventListener('click', deleteRow, false);
+		}
+	</script>
+	</head>
+	<body>
+		<div>
+			<input id="name" placeholder="Enter a name">
+			<button id="add-row-btn">Add Row</button>
+		</div>
+		<br>
+		<br />
+		<table width="40%" border="1">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			</tbody>
+		</table>
+	</body>
+</html>

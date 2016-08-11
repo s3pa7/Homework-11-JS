@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+h1 {
+	text-align:center;
+}
+
+.form-div {
+	border: 1px solid black;
+	margin: 0 auto;
+	height: 220px;
+	margin-left: 15%;
+    margin-right: 15%;
+}
+
+.label-1 {
+	margin-bottom: 1em;
+	width: 50%;
+    display: inline-block;
+}
+.label-2 {
+	margin-bottom: 1em;
+	width: 50%;
+    display: inline-block;
+}
+select {
+	width: 171px;
+    height: 21px;
+}
+.name {
+	margin-left:31px;
+	margin-top: 1em;
+}
+.fname {
+	margin-left:57px;
+}
+.city {
+	margin-left:28px;
+	
+}
+.area {
+	 margin-left: 69px;
+	
+}
+button {
+	margin-left: 40%;
+    width: 12%;
+}
+.country {
+	margin-left:14px;
+}

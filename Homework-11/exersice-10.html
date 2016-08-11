@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Form validation</title>
+	<link rel="stylesheet"  type="text/css" href="exersice-10.css"/>
+	<script type="text/javascript" src="exersice-10.js"></script>
+	<script type="text/javascript">
+	
+	document.addEventListener("DOMContentLoaded",function(){
+		var select = document.querySelector('#select');
+		select.addEventListener("change",function (){
+			var select = document.querySelector('#select');
+			var dCountry = document.querySelector("#dcountry");
+			var dLabel = document.querySelector("#label-dcountry");
+			if(select.value == "Other"){
+				dLabel.removeAttribute("style");
+				dCountry.removeAttribute("style");
+			}else if(select.value != "Other"){
+				dCountry.style.display = "none";
+				dLabel.style.display = "none";
+			}
+		}, false);
+		var form = document.querySelector("form");
+		
+		form.addEventListener("submit", function(event){
+			var names = document.querySelector('#names');
+			var fnames = document.querySelector('#fnames');
+			var select = document.querySelector('#select');
+			var city = document.querySelector('#city');
+			var area = document.querySelector('#area');
+			var phone = document.querySelector('#phone');
+			var gsm = document.querySelector('#gsm');
+			
+			var r1 = validate(names);
+			var r2 = validate(fnames);
+			var r3 = validate(select);
+			var r4 = validate(city)
+			var r5 = validate(area)
+			var r6 = validate(phone)
+			var r7 = validate(gsm)
+			if (r1 && r2 && r3 && r4 && r5 && r6 && r7) {
+				return;
+			}
+			
+			event.preventDefault();
+		}, false)
+		
+	}, false);
+	
+	</script>
+	</head>
+	<body>
+		<h1>Form Validation</h1>
+		<div class="form-div">
+			<form action=""  name="myform" novalidate>
+				<div>
+					<label id="name" for="name" class="label-1">Име:
+						<input id="names" class="name"  type="text" name="name" >
+					</label>
+					<label id="nameLabel"for="fname" >Фамилия:
+						<input id="fnames" class="fname" type="text" name="fname">
+					</label>	
+				</div>
+				<div>
+					<label id="label-select" for="country" class="label-2">Държава:
+					  <select id="select" name="country">
+					  	<option></option>
+					  	<option value="Other">Other</option>
+					  	<option value="България">България</option>
+					  	<option value="САЩ">САЩ</option>
+					  	<option value="Англия">Англия</option>
+					  </select>
+					</label>
+					<label id="label-dcountry" for="Dcountry" style="display: none">Друга Държава:
+						<input id="dcountry" class="country" style="display: none" type="text" name="Dcountry" >
+					</label>
+					</div>
+				<div>
+					<label id="label-city" class="label-1" for="city">Град:
+						<input id="city" class="city" type="text" name="city">
+					</label>	
+					<label id="label-area" for="area">Област:&nbsp;
+					<input id="area" class="area" type="text" name="area">
+					</label>
+				</div>
+				<div>
+					<label id="label-phone" class="label-1" for="phone">Телефон:
+						<input id="phone" type="number" name="phone">
+					</label>
+					<label id="label-gsm" for="gsm">Мобилен телефон:
+						<input id="gsm" type="number" name="gsm">
+					</label>
+				</div>
+				<button type="submit">Submmit</button>
+				
+			</form>
+		</div>
+	</body>
+	
+</html>

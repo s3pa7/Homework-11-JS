@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>ChangedKbLb</title>
+	<link rel="stylesheet"  type="text/css" href="exersice-07.css"/>
+	<script type="text/javascript" src="exersice-07.js"></script>
+	<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', onLoadHandler, false);
+	function onLoadHandler (){
+
+		document.getElementById("test").addEventListener("click", calculate);
+	}
+	</script>
+	</head>
+	<body>
+		<div id="div">
+			<form >
+				<label>Convert
+					<input  id="convert" type="text" value="12" required>
+				</label>
+				<label>
+					<select id="first">
+						<option value="kg">kg</option>
+						<option value="lb">lb</option>
+					</select>
+				</label>
+				<label>
+					<select id="second">
+						<option value="lb">lb</option>
+						<option value="kg">kg</option>
+					</select>
+				</label>
+			</form>
+			<button id="test">Calculate</button>
+			<p id="resultConvert"></p>
+		</div>
+	</body>
+</html>
